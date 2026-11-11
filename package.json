@@ -1,0 +1,13 @@
+{
+  "name": "sebastian-ai-assistant",
+  "private": true,
+  "description": "모노레포: sebastian_app, sebastian_server, web",
+  "scripts": {
+    "dev:server": "npm run start:dev --prefix sebastian_server",
+    "dev:web": "npm run dev --prefix web",
+    "dev": "concurrently -k -n server,web -c blue,green \"npm run dev:server\" \"npx wait-on@8 tcp:127.0.0.1:3000 && npm run dev:web\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
